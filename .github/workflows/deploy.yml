@@ -1,0 +1,22 @@
+name: Deploy to TrueNAS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build --platform linux/amd64 -t portfolio:latest .
+
+      - name: Deploy
+        run: |
+          docker compose \
+            -p ix-portfolio \
+            -f /mnt/.ix-apps/app_configs/portfolio/versions/1.0.0/templates/rendered/docker-compose.yaml \
+            up -d --force-recreate
