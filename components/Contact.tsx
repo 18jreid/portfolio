@@ -67,7 +67,7 @@ export default function Contact() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/justin-reid-0a7322133/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs px-4 py-2 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/30 hover:text-[#e6edf3] transition-all duration-200"

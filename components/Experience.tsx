@@ -18,10 +18,10 @@ const jobs = [
     ],
   },
   {
-    title: "System Test Automation Engineer",
-    company: "Hill AFB — United States Air Force",
+    title: "System Test Engineer",
+    company: "309th Software Engineering Group (SWEG) — Hill AFB",
     location: "Clearfield, UT",
-    period: "Jan 2023 — Dec 2025",
+    period: "Jan 2023 — Sep 2025",
     current: false,
     tags: ["Test Automation", "Python", "DevOps", "Agile", "F-16"],
     bullets: [
@@ -32,12 +32,12 @@ const jobs = [
     ],
   },
   {
-    title: "Computer Scientist Intern",
-    company: "Hill AFB — United States Air Force",
+    title: "Student Trainee (Computer Science)",
+    company: "309th Software Engineering Group (SWEG) — Hill AFB",
     location: "Clearfield, UT",
-    period: "Jun 2022 — Sep 2022",
+    period: "May 2022 — Sep 2022",
     current: false,
-    tags: ["Unreal Engine 4", "C++", "OpenGL", "Blender", "Agile"],
+    tags: ["C++", "Linear Algebra", "OpenGL", "Agile"],
     bullets: [
       "Developed 3D visualization and simulation tools using Unreal Engine 4 and C++.",
       "Collaborated in an Agile Scrum team to deliver sprint-based project goals.",
@@ -45,27 +45,29 @@ const jobs = [
     ],
   },
   {
-    title: "Data Programmer",
+    title: "VIVID Lab Programmer",
     company: "Utah State University — VIVID Lab",
     location: "Logan, UT",
-    period: "Jan 2022 — May 2022",
+    period: "Mar 2021 — May 2022",
     current: false,
-    tags: ["Python", "Unity", "Data Visualization"],
+    tags: ["Unity", "C#", "VR Development", "Python", "Django REST"],
     bullets: [
-      "Built tools to navigate, organize, and visualize VR eye-tracking data from Unity.",
-      "Analyzed data streams from VR headsets in partnership with the U.S. Department of Defense.",
+      "Collaborated with the US Department of Veterans Affairs to build a VR therapy application delivering equine therapy experiences to veterans.",
+      "Developed a VR interface for viewing and interacting with 360° videos of equine sessions.",
+      "Owned full lifecycle: research, design, implementation, and maintenance of the application.",
+      "Built command-line tools to navigate, organize, and visualize VR eye-tracking data from Unity.",
     ],
   },
   {
-    title: "VR GUI Developer",
-    company: "Utah State University — VIVID Lab",
+    title: "Head Developer",
+    company: "AppNut",
     location: "Logan, UT",
-    period: "Feb 2021 — May 2022",
+    period: "Jun 2019 — Sep 2019",
     current: false,
-    tags: ["Unity", "C#", "VR Development", "UX Design"],
+    tags: ["Unity", "C#", "Mobile Development", "Game Development"],
     bullets: [
-      "Designed and developed a virtual reality therapy application for disabled veterans.",
-      "Owned the full lifecycle: research, design, implementation, and ongoing maintenance.",
+      "Led development of Crashy Road!, a hyper-casual mobile game published on the Apple App Store.",
+      "Implemented game mechanics, functionality, and analytics as the primary developer on a startup team.",
     ],
   },
 ];
@@ -83,7 +85,6 @@ export default function Experience() {
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">Experience</h2>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#00e5ff]/60 via-[#1e2d3d] to-transparent hidden md:block" />
 
           <div className="space-y-8">
@@ -96,7 +97,6 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="md:pl-10 relative"
               >
-                {/* Timeline dot */}
                 <div
                   className={`absolute left-0 top-5 w-2 h-2 rounded-full -translate-x-[3px] hidden md:block ${
                     job.current
@@ -112,7 +112,6 @@ export default function Experience() {
                       : "border-[#1e2d3d] bg-[#0d1117]"
                   }`}
                 >
-                  {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
@@ -139,7 +138,6 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  {/* Bullets */}
                   <ul className="space-y-1.5 mb-4">
                     {job.bullets.map((b, j) => (
                       <li key={j} className="text-xs text-[#8b949e] flex gap-2">
@@ -149,7 +147,6 @@ export default function Experience() {
                     ))}
                   </ul>
 
-                  {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {job.tags.map((tag) => (
                       <span

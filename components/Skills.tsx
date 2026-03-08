@@ -21,12 +21,12 @@ const categories = [
   {
     name: "Frameworks & Tools",
     color: "#f59e0b",
-    skills: ["Next.js", "React", "Unity", "Unreal Engine 4", "Blender", "OpenGL"],
+    skills: ["Next.js", "React", "Django REST Framework", "Unity", "Unreal Engine 4", "Blender", "OpenGL"],
   },
   {
     name: "Specialty",
     color: "#ec4899",
-    skills: ["Test Automation", "VR Development", "Eye Tracking", "Active Security Clearance"],
+    skills: ["Test Automation", "VR Development", "Game Development", "Eye Tracking", "Active Security Clearance"],
   },
 ];
 

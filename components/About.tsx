@@ -42,19 +42,26 @@ export default function About() {
           {/* Bio */}
           <div className="space-y-5 text-[#8b949e] leading-relaxed">
             <p>
-              I&apos;m a Computer Science graduate from Utah State University with a background
-              spanning aerospace defense, virtual reality, and now artificial intelligence.
+              I&apos;m a Computer Science graduate from Utah State University with a strong foundation
+              in full-stack development, test engineering, and artificial intelligence.
             </p>
             <p>
-              Currently, I work as an{" "}
-              <span className="text-[#e6edf3] font-medium">AI Solutions Engineer Intern at MasterControl</span>,
-              where I apply machine learning and AI tooling to solve real-world enterprise challenges.
+              Currently interning at{" "}
+              <span className="text-[#e6edf3] font-medium">MasterControl</span> as an AI Solutions
+              Engineer, applying machine learning and AI tooling to solve real-world enterprise challenges.
             </p>
             <p>
-              Before that, I spent three years as a{" "}
-              <span className="text-[#e6edf3] font-medium">System Test Automation Engineer</span>{" "}
-              for the F-16 program at Hill Air Force Base — an environment that sharpened my instincts
-              for precision, reliability, and building systems that simply can&apos;t fail.
+              Previously, I spent nearly three years as a{" "}
+              <span className="text-[#e6edf3] font-medium">System Test Engineer</span> with the{" "}
+              <span className="text-[#e6edf3] font-medium">309th Software Engineering Group</span> at
+              Hill AFB — an environment that sharpened my instincts for precision and building software
+              that simply can&apos;t fail.
+            </p>
+            <p>
+              Earlier in my career I collaborated with the{" "}
+              <span className="text-[#e6edf3] font-medium">US Department of Veterans Affairs</span> to
+              build a VR therapy application, and shipped a mobile game to the App Store as head developer
+              of a startup.
             </p>
           </div>
 

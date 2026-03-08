@@ -26,7 +26,7 @@ export default function Education() {
               </div>
               <div className="text-sm text-[#8b949e] mt-0.5">Minor in Mathematics</div>
               <div className="text-sm text-[#00e5ff] mt-2">Utah State University</div>
-              <div className="text-xs text-[#8b949e] mt-1">Logan, UT — Graduated January 2023</div>
+              <div className="text-xs text-[#8b949e] mt-1">Logan, UT — Graduated May 2023</div>
 
               <div className="mt-4 flex flex-wrap gap-2">
                 {["Data Structures", "Algorithms", "Machine Learning", "Computer Graphics", "Database Systems", "Software Engineering"].map((course) => (
