@@ -12,7 +12,7 @@ export default function Education() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">04</p>
+        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">05</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">Education</h2>
 
         <div className="p-8 border border-[#1e2d3d] bg-[#0d1117] hover:border-[#00e5ff]/20 transition-all duration-300 max-w-2xl">
