@@ -62,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#e6edf3] leading-tight mb-4"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e6edf3] leading-tight mb-4"
             >
               Justin Reid
             </motion.h1>
@@ -138,7 +138,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="shrink-0"
           >
-            <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80">
+            <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80">
               {/* Glow ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00e5ff]/20 to-[#7c3aed]/20 blur-xl" />
               {/* Photo container */}

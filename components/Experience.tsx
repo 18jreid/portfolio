@@ -113,7 +113,7 @@ export default function Experience() {
                   }`}
                 >
                   {/* Header */}
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <h3 className="font-semibold text-[#e6edf3] text-base md:text-lg">
@@ -127,12 +127,12 @@ export default function Experience() {
                       </div>
                       <div className="text-sm text-[#00e5ff] mt-1">{job.company}</div>
                     </div>
-                    <div className="text-xs text-[#8b949e] text-right space-y-1">
-                      <div className="flex items-center gap-1 justify-end">
+                    <div className="text-xs text-[#8b949e] sm:text-right space-y-1 shrink-0">
+                      <div className="flex items-center gap-1 sm:justify-end">
                         <Calendar size={11} />
                         {job.period}
                       </div>
-                      <div className="flex items-center gap-1 justify-end">
+                      <div className="flex items-center gap-1 sm:justify-end">
                         <MapPin size={11} />
                         {job.location}
                       </div>
