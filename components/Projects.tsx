@@ -5,21 +5,39 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    name: "Reid Family Hub",
+    name: "Psyko Skrubs",
     description:
-      "A self-hosted family web portal with integrations for media browsing, photo management, AI chat, and home automation. Deployed on TrueNAS via Docker with a fully automated CI/CD pipeline through GitHub Actions.",
-    tags: ["Python", "Flask", "Docker", "TrueNAS", "CI/CD", "REST APIs"],
-    github: "https://github.com/18jreid/reid-family-hub",
-    live: null,
+      "A production CS2 gaming group site tracking player stats, K/D leaderboards, and Allstar.gg highlight clips. Features Steam OpenID authentication, a game-request voting system, and a fully automated Docker deployment pipeline to a self-hosted TrueNAS server via GitHub Actions + Cloudflare Tunnel.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "SQLite", "Steam OAuth", "Docker", "CI/CD"],
+    github: "https://github.com/18jreid/psyko-skrubs-web",
+    live: "https://cs.psykostats.com",
     highlight: true,
   },
   {
     name: "Portfolio Website",
     description:
-      "This site — a personal software engineer portfolio built with Next.js and Tailwind CSS. Automatically built and deployed to a self-hosted TrueNAS server on every push via a GitHub Actions self-hosted runner.",
+      "This site — a personal software engineer portfolio built with Next.js 16 and Tailwind CSS v4. Automatically built and deployed to a self-hosted TrueNAS server on every push via a GitHub Actions self-hosted runner.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Docker", "GitHub Actions"],
     github: "https://github.com/18jreid/portfolio",
     live: "https://portfolio.reidfamilies.com",
+    highlight: false,
+  },
+  {
+    name: "Math Trainer",
+    description:
+      "A quick mental math trainer designed for rapid inventory calculations at work. A focused TypeScript utility app for building calculation speed and accuracy.",
+    tags: ["TypeScript", "Next.js"],
+    github: "https://github.com/18jreid/math-trainer",
+    live: null,
+    highlight: false,
+  },
+  {
+    name: "Task Tracker",
+    description:
+      "A full-stack task management application built with NestJS, React, and PostgreSQL. Features JWT authentication, role-based access control, RESTful API design, and relational data modeling.",
+    tags: ["TypeScript", "NestJS", "React", "PostgreSQL", "JWT"],
+    github: "https://github.com/18jreid/TaskTracker",
+    live: null,
     highlight: false,
   },
   {
@@ -32,47 +50,20 @@ const projects = [
     highlight: false,
   },
   {
+    name: "Putt Putt Scorekeeper",
+    description:
+      "A group mini-golf scoring and management web app built with Django for a software engineering course. Supports multiple user roles (Player, Sponsor, Manager, DrinkMeister), score entry, account balances, and an admin panel.",
+    tags: ["Python", "Django", "HTML/CSS", "SQLite", "Role-Based Auth"],
+    github: "https://github.com/18jreid/CS3450_PuttPutt_Group6",
+    live: null,
+    highlight: false,
+  },
+  {
     name: "Galaga",
     description:
-      "A browser-based recreation of the classic Galaga arcade game, served via a Node.js backend. Features wave-based enemy patterns, player movement, and collision detection built with vanilla JavaScript.",
+      "A browser-based recreation of the classic Galaga arcade game served via a Node.js backend. Features wave-based enemy patterns, player movement, and collision detection built with vanilla JavaScript.",
     tags: ["JavaScript", "Node.js", "HTML5 Canvas", "Game Development"],
     github: "https://github.com/18jreid/Galaga",
-    live: null,
-    highlight: false,
-  },
-  {
-    name: "Task Tracker",
-    description:
-      "A full-stack task management application built with NestJS, React, and PostgreSQL. Features RESTful API design, relational data modeling, and a responsive frontend interface.",
-    tags: ["TypeScript", "NestJS", "React", "PostgreSQL"],
-    github: "https://github.com/18jreid/TaskTracker",
-    live: null,
-    highlight: false,
-  },
-  {
-    name: "3D Graphics Engine",
-    description:
-      "A software-rendered 3D graphics engine built from scratch in Python. Implements custom matrix and vector math, projection pipelines, and loads .obj mesh files for real-time rendering using Pygame.",
-    tags: ["Python", "Pygame", "Linear Algebra", "3D Graphics", "OBJ Rendering"],
-    github: "https://github.com/18jreid/MyProjects/tree/main/3D%20Graphics%20Engine",
-    live: null,
-    highlight: false,
-  },
-  {
-    name: "OpenGL Renderer",
-    description:
-      "A C++ 3D rendering engine using OpenGL. Implements a full graphics pipeline including camera systems, mesh loading, texture mapping, VAO/VBO/EBO buffer management, and custom GLSL shaders.",
-    tags: ["C++", "OpenGL", "GLSL", "3D Graphics", "Linear Algebra"],
-    github: "https://github.com/18jreid/MyProjects/tree/main/OpenGL",
-    live: null,
-    highlight: false,
-  },
-  {
-    name: "AlgoTrader",
-    description:
-      "A Django web application for algorithmic trading with user authentication, a personal dashboard, and a RESTful backend. Built with Python and Django's ORM for data modeling.",
-    tags: ["Python", "Django", "SQLite", "REST", "Authentication"],
-    github: "https://github.com/18jreid/MyProjects/tree/main/AlgoTrader",
     live: null,
     highlight: false,
   },
