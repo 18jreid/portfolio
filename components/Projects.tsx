@@ -14,6 +14,24 @@ const projects = [
     highlight: true,
   },
   {
+    name: "3D Graphics Engine",
+    description:
+      "A software-rendered 3D graphics engine built from scratch in Python. Implements custom Vec3d, Mat4x4, and Triangle math structures, a full projection pipeline, and loads .obj mesh files for real-time rendering using Pygame — no graphics library shortcuts.",
+    tags: ["Python", "Pygame", "Linear Algebra", "3D Graphics", "OBJ Rendering"],
+    github: "https://github.com/18jreid/MyProjects/tree/main/3D%20Graphics%20Engine",
+    live: null,
+    highlight: false,
+  },
+  {
+    name: "OpenGL Renderer",
+    description:
+      "A C++ 3D rendering engine using OpenGL. Implements a full graphics pipeline including camera systems, mesh loading, texture mapping, VAO/VBO/EBO buffer management, and custom GLSL vertex and fragment shaders.",
+    tags: ["C++", "OpenGL", "GLSL", "3D Graphics", "Linear Algebra"],
+    github: "https://github.com/18jreid/MyProjects/tree/main/OpenGL",
+    live: null,
+    highlight: false,
+  },
+  {
     name: "Portfolio Website",
     description:
       "This site — a personal software engineer portfolio built with Next.js 16 and Tailwind CSS v4. Automatically built and deployed to a self-hosted TrueNAS server on every push via a GitHub Actions self-hosted runner.",
@@ -23,11 +41,11 @@ const projects = [
     highlight: false,
   },
   {
-    name: "Math Trainer",
+    name: "AlgoTrader",
     description:
-      "A quick mental math trainer designed for rapid inventory calculations at work. A focused TypeScript utility app for building calculation speed and accuracy.",
-    tags: ["TypeScript", "Next.js"],
-    github: "https://github.com/18jreid/math-trainer",
+      "A Django web application for algorithmic trading with user authentication, a personal dashboard, and a RESTful backend. Built with Python and Django's ORM for data modeling and SQLite persistence.",
+    tags: ["Python", "Django", "SQLite", "REST", "Authentication"],
+    github: "https://github.com/18jreid/MyProjects/tree/main/AlgoTrader",
     live: null,
     highlight: false,
   },
@@ -46,15 +64,6 @@ const projects = [
       "A virtual reality maze game developed in Unity as part of a graduate-level VR course. Players navigate a procedurally designed maze in a fully immersive first-person VR environment.",
     tags: ["Unity", "C#", "VR", "Game Development"],
     github: "https://github.com/18jreid/CS5950",
-    live: null,
-    highlight: false,
-  },
-  {
-    name: "Putt Putt Scorekeeper",
-    description:
-      "A group mini-golf scoring and management web app built with Django for a software engineering course. Supports multiple user roles (Player, Sponsor, Manager, DrinkMeister), score entry, account balances, and an admin panel.",
-    tags: ["Python", "Django", "HTML/CSS", "SQLite", "Role-Based Auth"],
-    github: "https://github.com/18jreid/CS3450_PuttPutt_Group6",
     live: null,
     highlight: false,
   },
