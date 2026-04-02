@@ -11,14 +11,38 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
+const sectionIds = links.map((l) => l.href.replace("#", ""));
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   return (
@@ -39,16 +63,27 @@ export default function Nav() {
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-[#8b949e] hover:text-[#e6edf3] transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            const id = link.href.replace("#", "");
+            const isActive = activeSection === id;
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`text-sm transition-colors duration-200 relative ${
+                    isActive
+                      ? "text-[#00e5ff]"
+                      : "text-[#8b949e] hover:text-[#e6edf3]"
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-px bg-[#00e5ff]/60" />
+                  )}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Mobile menu toggle */}
@@ -64,17 +99,23 @@ export default function Nav() {
       {menuOpen && (
         <div className="md:hidden bg-[#0d1117] border-b border-[#1e2d3d] px-6 pb-4">
           <ul className="flex flex-col gap-4">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm text-[#8b949e] hover:text-[#e6edf3] transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {links.map((link) => {
+              const id = link.href.replace("#", "");
+              const isActive = activeSection === id;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-sm transition-colors ${
+                      isActive ? "text-[#00e5ff]" : "text-[#8b949e] hover:text-[#e6edf3]"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

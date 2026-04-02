@@ -13,7 +13,7 @@ const roles = [
 ];
 
 const stats = [
-  { value: "3+", label: "defense" },
+  { value: "3+", label: "yrs defense" },
   { value: "F-16", label: "avionics" },
   { value: "8", label: "projects" },
   { value: "AI", label: "focus" },
@@ -102,7 +102,7 @@ export default function Hero() {
           className="text-[#8b949e] text-base md:text-lg max-w-xl leading-relaxed mb-8"
         >
           CS engineer with a defense background and previously held security clearance —
-          building AI and full-stack solutions, seeking full-time roles.
+          building AI pipelines, full-stack apps, and automated systems. Open to full-time roles.
         </motion.p>
 
         <motion.div

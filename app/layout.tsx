@@ -18,9 +18,34 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio.reidfamilies.com"),
   title: "Justin Reid — Software Engineer",
   description:
     "Portfolio of Justin Reid — AI Solutions Engineer, Software Developer, and Test Automation expert with a background in aerospace defense systems.",
+  openGraph: {
+    title: "Justin Reid — Software Engineer",
+    description:
+      "AI Solutions Engineer and full-stack developer with a defense background — building AI pipelines, full-stack apps, and automated systems.",
+    url: "https://portfolio.reidfamilies.com",
+    siteName: "Justin Reid Portfolio",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 800,
+        height: 800,
+        alt: "Justin Reid",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Justin Reid — Software Engineer",
+    description:
+      "AI Solutions Engineer and full-stack developer with a defense background.",
+    images: ["/profile.jpg"],
+  },
 };
 
 export default function RootLayout({
