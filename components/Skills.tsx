@@ -50,7 +50,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="p-5 border border-[#1e2d3d] bg-[#0d1117] hover:border-[#1e2d3d]/80 transition-all duration-300"
+              className="p-5 border border-[#1e2d3d] bg-[#0d1117] hover:border-[#00e5ff]/40 hover:bg-[#00e5ff]/3 transition-all duration-300"
               style={{ borderTopColor: cat.color + "50" }}
             >
               <div

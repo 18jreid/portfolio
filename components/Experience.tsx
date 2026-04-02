@@ -106,7 +106,7 @@ export default function Experience() {
                 />
 
                 <div
-                  className={`p-6 border transition-all duration-300 hover:border-[#00e5ff]/20 ${
+                  className={`p-6 border transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#00e5ff]/5 ${
                     job.current
                       ? "border-[#00e5ff]/30 bg-[#00e5ff]/5"
                       : "border-[#1e2d3d] bg-[#0d1117]"
