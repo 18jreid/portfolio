@@ -26,7 +26,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="contact" className="py-16 md:py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export default function Contact() {
           I&apos;d love to hear about your project or opportunity.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Contact links */}
           <div className="space-y-4">
             {links.map(({ icon: Icon, label, href, color }) => (
@@ -61,7 +61,7 @@ export default function Contact() {
                 href="https://github.com/18jreid"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs px-4 py-2 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/30 hover:text-[#e6edf3] transition-all duration-200"
+                className="flex items-center gap-2 text-xs px-4 py-3 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/30 hover:text-[#e6edf3] transition-all duration-200"
               >
                 <Github size={14} />
                 GitHub
@@ -70,7 +70,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/justin-reid-0a7322133/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs px-4 py-2 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/30 hover:text-[#e6edf3] transition-all duration-200"
+                className="flex items-center gap-2 text-xs px-4 py-3 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/30 hover:text-[#e6edf3] transition-all duration-200"
               >
                 <Linkedin size={14} />
                 LinkedIn
@@ -98,7 +98,7 @@ export default function Contact() {
       </motion.div>
 
       {/* Footer */}
-      <div className="mt-24 pt-8 border-t border-[#1e2d3d] text-xs text-[#8b949e] flex flex-wrap justify-between gap-4">
+      <div className="mt-16 md:mt-24 pt-8 border-t border-[#1e2d3d] text-xs text-[#8b949e] flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-4">
         <span>© 2026 Justin Reid</span>
         <span>Built with Next.js + Tailwind CSS</span>
       </div>

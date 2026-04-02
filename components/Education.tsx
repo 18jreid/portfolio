@@ -5,7 +5,7 @@ import { GraduationCap, Shield } from "lucide-react";
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="education" className="py-16 md:py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ export default function Education() {
         <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">04</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">Education & Credentials</h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Degree */}
           <div className="p-6 border border-[#1e2d3d] bg-[#0d1117] hover:border-[#00e5ff]/40 transition-all duration-300">
             <div className="flex items-start gap-4">

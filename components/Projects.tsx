@@ -75,7 +75,7 @@ const otherProjects = projects.filter((p) => p.live === null);
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="projects" className="py-16 md:py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function Projects() {
             <div className="flex-1 h-px bg-[#1e2d3d]" />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {liveProducts.map((project, i) => (
               <motion.div
                 key={project.name}
@@ -171,7 +171,7 @@ export default function Projects() {
             <div className="flex-1 h-px bg-[#1e2d3d]" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {otherProjects.map((project, i) => (
               <motion.div
                 key={project.name}

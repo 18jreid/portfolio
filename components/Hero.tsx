@@ -13,10 +13,10 @@ const roles = [
 ];
 
 const stats = [
-  { value: "3+", label: "yrs defense" },
+  { value: "3+", label: "defense" },
   { value: "F-16", label: "avionics" },
   { value: "8", label: "projects" },
-  { value: "AI", label: "current focus" },
+  { value: "AI", label: "focus" },
 ];
 
 export default function Hero() {

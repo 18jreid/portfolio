@@ -53,7 +53,7 @@ export default function Nav() {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden text-[#8b949e] hover:text-[#e6edf3]"
+          className="md:hidden text-[#8b949e] hover:text-[#e6edf3] p-2 -mr-2"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}

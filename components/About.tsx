@@ -32,13 +32,13 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="py-8 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="about" className="py-6 md:py-8 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
       >
         {highlights.map(({ icon: Icon, label, desc, color }, i) => (
           <motion.div

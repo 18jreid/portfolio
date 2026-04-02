@@ -32,7 +32,7 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="skills" className="py-16 md:py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function Skills() {
         <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">03</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">Skills</h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.name}

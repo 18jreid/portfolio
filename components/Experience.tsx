@@ -74,7 +74,7 @@ const jobs = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="experience" className="py-16 md:py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
