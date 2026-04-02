@@ -58,7 +58,7 @@ export default function Contact() {
 
             <div className="flex gap-3 pt-2">
               <a
-                href="https://github.com"
+                href="https://github.com/18jreid"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs px-4 py-2 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/30 hover:text-[#e6edf3] transition-all duration-200"
