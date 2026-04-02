@@ -13,7 +13,7 @@ const highlights = [
   {
     icon: Shield,
     label: "Defense Background",
-    desc: "F-16 avionics at Hill AFB + active clearance",
+    desc: "F-16 avionics at Hill AFB, prev. security clearance",
     color: "#00e5ff",
   },
   {

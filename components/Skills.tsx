@@ -26,7 +26,7 @@ const categories = [
   {
     name: "Specialty",
     color: "#ec4899",
-    skills: ["Test Automation", "VR Development", "Game Development", "Eye Tracking", "Active Security Clearance"],
+    skills: ["Test Automation", "VR Development", "Game Development", "Eye Tracking", "Prev. Security Clearance"],
   },
 ];
 

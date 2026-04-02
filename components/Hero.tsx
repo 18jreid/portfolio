@@ -101,7 +101,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-[#8b949e] text-base md:text-lg max-w-xl leading-relaxed mb-8"
         >
-          CS engineer with a defense background and active security clearance —
+          CS engineer with a defense background and previously held security clearance —
           building AI and full-stack solutions, seeking full-time roles.
         </motion.p>
 
@@ -138,7 +138,7 @@ export default function Hero() {
           </span>
           <span className="flex items-center gap-2 px-3 py-1.5 border border-[#7c3aed]/50 bg-[#7c3aed]/10 text-[#a78bfa] text-xs font-semibold">
             <Shield size={11} />
-            Active Security Clearance
+            Prev. Security Clearance
           </span>
           <span className="flex items-center gap-2 px-3 py-1.5 border border-[#1e2d3d] text-[#8b949e] text-xs">
             <MapPin size={11} />

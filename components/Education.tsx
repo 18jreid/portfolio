@@ -48,13 +48,13 @@ export default function Education() {
                 <Shield size={20} className="text-[#a78bfa]" />
               </div>
               <div>
-                <div className="font-bold text-[#e6edf3]">Active Security Clearance</div>
-                <div className="text-sm text-[#8b949e] mt-0.5">US Government Issued</div>
+                <div className="font-bold text-[#e6edf3]">Security Clearance</div>
+                <div className="text-sm text-[#8b949e] mt-0.5">US Government Issued — Expired Mar 2026</div>
                 <div className="text-sm text-[#a78bfa] mt-2">Department of Defense</div>
                 <div className="text-xs text-[#8b949e] mt-1">Issued via 309th SWEG — Hill AFB</div>
                 <p className="mt-4 text-xs text-[#8b949e] leading-relaxed">
                   Maintained throughout 3+ years supporting classified avionics software
-                  on the F-16 fighter jet platform. Available for roles requiring clearance.
+                  on the F-16 fighter jet platform. Eligible for reinstatement.
                 </p>
               </div>
             </div>
