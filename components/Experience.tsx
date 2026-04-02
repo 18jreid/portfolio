@@ -8,7 +8,7 @@ const jobs = [
     title: "AI Solutions Engineer Intern",
     company: "MasterControl",
     location: "Remote / Utah",
-    period: "Jan 2026 — Present",
+    period: "Jan 2026 — May 2026",
     current: true,
     tags: ["AI / ML", "Python", "LLMs", "Enterprise Software"],
     bullets: [
@@ -119,8 +119,8 @@ export default function Experience() {
                           {job.title}
                         </h3>
                         {job.current && (
-                          <span className="text-xs px-2 py-0.5 bg-[#39d353]/10 border border-[#39d353]/30 text-[#39d353] rounded-sm">
-                            Current
+                          <span className="text-xs px-2 py-0.5 bg-[#f0a500]/10 border border-[#f0a500]/30 text-[#f0a500] rounded-sm">
+                            Ending May 2026
                           </span>
                         )}
                       </div>

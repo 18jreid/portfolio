@@ -46,9 +46,10 @@ export default function About() {
               in full-stack development, test engineering, and artificial intelligence.
             </p>
             <p>
-              Currently interning at{" "}
+              Most recently at{" "}
               <span className="text-[#e6edf3] font-medium">MasterControl</span> as an AI Solutions
-              Engineer, applying machine learning and AI tooling to solve real-world enterprise challenges.
+              Engineer Intern, applying machine learning and LLM tooling to solve real-world enterprise
+              challenges — and now actively seeking full-time roles in AI engineering and software development.
             </p>
             <p>
               Previously, I spent nearly three years as a{" "}

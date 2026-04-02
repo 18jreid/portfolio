@@ -85,7 +85,7 @@ export default function Contact() {
               <span className="text-[#e6edf3] font-semibold">Available for opportunities</span>
             </div>
             <p className="text-sm text-[#8b949e] leading-relaxed mb-6">
-              Currently open to full-time software engineering and AI roles. Best response time is under 24 hours.
+              Actively seeking full-time roles in AI engineering and software development — internship wrapping up May 2026. Best response time is under 24 hours.
             </p>
             <a
               href="mailto:jsreid27@gmail.com"
