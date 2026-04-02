@@ -33,7 +33,7 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">06</p>
+        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">05</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-4">Get in Touch</h2>
         <p className="text-[#8b949e] text-sm mb-12 max-w-lg">
           Open to full-time roles in AI engineering, software development, and systems automation.

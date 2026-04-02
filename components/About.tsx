@@ -7,82 +7,61 @@ const highlights = [
   {
     icon: Brain,
     label: "AI Engineering",
-    desc: "Building intelligent solutions and machine learning pipelines at MasterControl",
+    desc: "LLMs, ML pipelines, agentic systems",
+    color: "#7c3aed",
   },
   {
     icon: Shield,
-    label: "Defense Tech",
-    desc: "3+ years enhancing F-16 avionics test systems at Hill Air Force Base",
+    label: "Defense Background",
+    desc: "F-16 avionics at Hill AFB + active clearance",
+    color: "#00e5ff",
   },
   {
     icon: Code2,
     label: "Full-Stack Dev",
-    desc: "From VR applications to automation frameworks across multiple platforms",
+    desc: "Next.js, React, Django, Docker, CI/CD",
+    color: "#39d353",
   },
   {
     icon: Cpu,
-    label: "Systems Thinking",
-    desc: "Agile and DevOps mindset for delivering reliable software at scale",
+    label: "Systems Depth",
+    desc: "C++, OpenGL, graphics engines, VR",
+    color: "#f59e0b",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="about" className="py-8 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-4"
       >
-        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">01</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">About Me</h2>
-
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Bio */}
-          <div className="space-y-5 text-[#8b949e] leading-relaxed">
-            <p>
-              I&apos;m a Computer Science graduate from Utah State University with a strong foundation
-              in full-stack development, test engineering, and artificial intelligence.
-            </p>
-            <p>
-              Most recently at{" "}
-              <span className="text-[#e6edf3] font-medium">MasterControl</span> as an AI Solutions
-              Engineer Intern, applying machine learning and LLM tooling to solve real-world enterprise
-              challenges — and now actively seeking full-time roles in AI engineering and software development.
-            </p>
-            <p>
-              Previously, I spent nearly three years as a{" "}
-              <span className="text-[#e6edf3] font-medium">System Test Engineer</span> with the{" "}
-              <span className="text-[#e6edf3] font-medium">309th Software Engineering Group</span> at
-              Hill AFB — an environment that sharpened my instincts for precision and building software
-              that simply can&apos;t fail.
-            </p>
-            <p>
-              Earlier in my career I collaborated with the{" "}
-              <span className="text-[#e6edf3] font-medium">US Department of Veterans Affairs</span> to
-              build a VR therapy application, and shipped a mobile game to the App Store as head developer
-              of a startup.
-            </p>
-          </div>
-
-          {/* Highlight cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map(({ icon: Icon, label, desc }) => (
-              <div
-                key={label}
-                className="p-4 border border-[#1e2d3d] bg-[#0d1117] hover:border-[#00e5ff]/30 transition-all duration-300 group"
-              >
-                <Icon
-                  size={20}
-                  className="text-[#00e5ff] mb-3 group-hover:scale-110 transition-transform duration-200"
-                />
-                <div className="text-xs text-[#e6edf3] font-semibold mb-1">{label}</div>
-                <div className="text-xs text-[#8b949e] leading-relaxed">{desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {highlights.map(({ icon: Icon, label, desc, color }, i) => (
+          <motion.div
+            key={label}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.07 }}
+            className="p-4 border border-[#1e2d3d] bg-[#0d1117] hover:border-[#00e5ff]/40 hover:bg-[#00e5ff]/[0.02] transition-all duration-300 group"
+          >
+            <div
+              className="w-8 h-8 flex items-center justify-center mb-3 border transition-all duration-300"
+              style={{
+                borderColor: color + "40",
+                backgroundColor: color + "12",
+              }}
+            >
+              <Icon size={15} style={{ color }} />
+            </div>
+            <div className="text-xs font-semibold text-[#e6edf3] mb-1">{label}</div>
+            <div className="text-xs text-[#8b949e] leading-relaxed">{desc}</div>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );

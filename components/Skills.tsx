@@ -39,7 +39,7 @@ export default function Skills() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">04</p>
+        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">03</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">Skills</h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

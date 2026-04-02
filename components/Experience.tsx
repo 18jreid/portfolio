@@ -81,7 +81,7 @@ export default function Experience() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">02</p>
+        <p className="text-[#00e5ff] text-sm font-medium tracking-widest uppercase mb-2">01</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#e6edf3] mb-12">Experience</h2>
 
         <div className="relative">
