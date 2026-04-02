@@ -100,7 +100,7 @@ export default function Projects() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className={`flex flex-col p-6 border transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#00e5ff]/5 ${
                 project.highlight
-                  ? "border-[#00e5ff]/30 bg-[#00e5ff]/5"
+                  ? "border-[#1e2d3d] border-l-2 border-l-[#00e5ff] bg-[#0d1117]"
                   : "border-[#1e2d3d] bg-[#0d1117]"
               }`}
             >
