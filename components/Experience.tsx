@@ -12,9 +12,9 @@ const jobs = [
     current: true,
     tags: ["AI / ML", "Python", "LLMs", "Enterprise Software"],
     bullets: [
-      "Developing AI-powered solutions to automate and enhance enterprise quality management workflows.",
-      "Building and integrating large language model tooling to assist engineering and compliance teams.",
-      "Collaborating cross-functionally to identify high-impact automation opportunities.",
+      "Building LLM-powered tools that automate quality management workflows for enterprise compliance teams.",
+      "Integrating large language models into engineering pipelines to eliminate manual review bottlenecks.",
+      "Scoping and delivering high-impact automation opportunities across cross-functional stakeholder teams.",
     ],
   },
   {
@@ -25,10 +25,10 @@ const jobs = [
     current: false,
     tags: ["Test Automation", "Python", "DevOps", "Agile", "F-16"],
     bullets: [
-      "Designed and maintained automated test frameworks for F-16 fighter jet avionics systems.",
-      "Reviewed and identified software requirements for testability in high-stakes aerospace environments.",
-      "Led troubleshooting and maintenance of critical network and application infrastructure.",
-      "Managed software patches and OS upgrades under strict quality standards.",
+      "Automated 150+ test cases for F-16 avionics systems, accelerating regression coverage and cutting manual testing overhead.",
+      "Evaluated and validated software requirements for testability across classified avionics programs under DoD quality standards.",
+      "Diagnosed and resolved critical failures in network systems and application infrastructure supporting active flight software.",
+      "Managed software patch cycles and OS upgrades across classified systems under strict DoD security and compliance protocols.",
     ],
   },
   {
@@ -39,9 +39,9 @@ const jobs = [
     current: false,
     tags: ["C++", "Linear Algebra", "OpenGL", "Agile"],
     bullets: [
-      "Developed 3D visualization and simulation tools using Unreal Engine 4 and C++.",
-      "Collaborated in an Agile Scrum team to deliver sprint-based project goals.",
-      "Maintained and debugged simulation systems supporting defense program development.",
+      "Built 3D visualization and simulation tools in Unreal Engine 4 and C++ supporting active defense programs.",
+      "Delivered sprint goals within an Agile Scrum team on classified simulation systems.",
+      "Diagnosed and maintained simulation infrastructure to keep defense development pipelines unblocked.",
     ],
   },
   {
@@ -52,10 +52,9 @@ const jobs = [
     current: false,
     tags: ["Unity", "C#", "VR Development", "Python", "Django REST"],
     bullets: [
-      "Collaborated with the US Department of Veterans Affairs to build a VR therapy application delivering equine therapy experiences to veterans.",
-      "Developed a VR interface for viewing and interacting with 360° videos of equine sessions.",
-      "Owned full lifecycle: research, design, implementation, and maintenance of the application.",
-      "Built command-line tools to navigate, organize, and visualize VR eye-tracking data from Unity.",
+      "Partnered with the US Department of Veterans Affairs to design and ship a VR equine therapy app for disabled veterans — owned the full lifecycle from research through deployment.",
+      "Built an immersive VR interface for viewing and interacting with 360° equine therapy sessions.",
+      "Developed command-line tooling to parse, organize, and visualize VR eye-tracking data exported from Unity.",
     ],
   },
   {
@@ -67,7 +66,7 @@ const jobs = [
     tags: ["Unity", "C#", "Mobile Development", "Game Development"],
     bullets: [
       "Led development of Crashy Road!, a hyper-casual mobile game published on the Apple App Store.",
-      "Implemented game mechanics, functionality, and analytics as the primary developer on a startup team.",
+      "Sole engineer on a startup team — owned game mechanics, analytics integration, and App Store submission end-to-end.",
     ],
   },
 ];

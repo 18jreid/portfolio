@@ -84,6 +84,16 @@ export default function Nav() {
               </li>
             );
           })}
+          <li>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-3 py-1.5 border border-[#1e2d3d] text-[#8b949e] hover:border-[#00e5ff]/50 hover:text-[#00e5ff] transition-all duration-200"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
 
         {/* Mobile menu toggle */}

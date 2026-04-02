@@ -87,12 +87,22 @@ export default function Contact() {
             <p className="text-sm text-[#8b949e] leading-relaxed mb-6">
               Actively seeking full-time roles in AI engineering and software development — internship wrapping up May 2026. Best response time is under 24 hours.
             </p>
-            <a
-              href="mailto:jsreid27@gmail.com"
-              className="inline-block px-5 py-2.5 bg-[#00e5ff] text-[#080c14] text-sm font-semibold hover:bg-[#00c8e0] transition-colors duration-200"
-            >
-              Send a Message
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="mailto:jsreid27@gmail.com"
+                className="inline-block px-5 py-2.5 bg-[#00e5ff] text-[#080c14] text-sm font-semibold hover:bg-[#00c8e0] transition-colors duration-200"
+              >
+                Send a Message
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2.5 border border-[#1e2d3d] text-[#8b949e] text-sm font-medium hover:border-[#00e5ff]/50 hover:text-[#e6edf3] transition-all duration-200"
+              >
+                View Resume
+              </a>
+            </div>
           </div>
         </div>
       </motion.div>
