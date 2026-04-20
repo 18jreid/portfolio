@@ -7,66 +7,54 @@ const jobs = [
   {
     title: "AI Solutions Engineer Intern",
     company: "MasterControl",
-    location: "Remote / Utah",
-    period: "Jan 2026 — May 2026",
+    location: "Salt Lake City, UT",
+    period: "Jan 2026 — Present",
     current: true,
-    tags: ["AI / ML", "Python", "LLMs", "Enterprise Software"],
+    tags: ["Python", "LLMs", "AWS", "GitHub Actions", "CI/CD", "DOMO"],
     bullets: [
-      "Building LLM-powered tools that automate quality management workflows for enterprise compliance teams.",
-      "Integrating large language models into engineering pipelines to eliminate manual review bottlenecks.",
-      "Scoping and delivering high-impact automation opportunities across cross-functional stakeholder teams.",
+      "Maintained and scaled the company's internal LLM gateway as it grew into the primary AI provider for the organization, managing model availability across multiple providers and environments.",
+      "Built unit test suites to validate model health, endpoint reachability, fallback routing, and spend log accuracy — establishing a reliability baseline for a platform the entire company depended on.",
+      "Automated deployment pipelines across dev and prod environments using GitHub Actions and AWS (CodeBuild, Lambda, S3, Secrets Manager), enabling zero-touch promotions between environments.",
+      "Developed analytics dashboards in DOMO to surface model usage patterns, latency trends, and cost breakdowns across the organization.",
     ],
   },
   {
-    title: "System Test Engineer",
+    title: "System Test Automation Engineer",
     company: "309th Software Engineering Group (SWEG) — Hill AFB",
     location: "Clearfield, UT",
-    period: "Jan 2023 — Sep 2025",
+    period: "Jan 2023 — Oct 2025",
     current: false,
-    tags: ["Test Automation", "Python", "DevOps", "Agile", "F-16"],
+    tags: ["Test Automation", "Python", "DISA STIGs", "Agile", "F-16"],
     bullets: [
-      "Automated 150+ test cases for F-16 avionics systems, accelerating regression coverage and cutting manual testing overhead.",
-      "Evaluated and validated software requirements for testability across classified avionics programs under DoD quality standards.",
-      "Diagnosed and resolved critical failures in network systems and application infrastructure supporting active flight software.",
-      "Managed software patch cycles and OS upgrades across classified systems under strict DoD security and compliance protocols.",
+      "Automated 150+ test cases for F-16 avionics systems in Python, cutting manual regression time by an estimated 40% and enabling faster software patch delivery cycles.",
+      "Qualified OS upgrades and software patches under DoD compliance frameworks (DISA STIGs), achieving zero critical findings across all release audits.",
+      "Decomposed system requirements for testability and authored test plans that became organizational standards for avionics software validation.",
+      "Provided root-cause analysis and technical guidance during system-level anomalies, working directly with avionics software development teams.",
     ],
   },
   {
-    title: "Student Trainee (Computer Science)",
-    company: "309th Software Engineering Group (SWEG) — Hill AFB",
+    title: "Computer Scientist Intern",
+    company: "Hill AFB — United States Air Force",
     location: "Clearfield, UT",
-    period: "May 2022 — Sep 2022",
+    period: "Jun 2022 — Sep 2022",
     current: false,
-    tags: ["C++", "Linear Algebra", "OpenGL", "Agile"],
+    tags: ["C++", "Unreal Engine 4", "OpenGL", "Agile"],
     bullets: [
-      "Built 3D visualization and simulation tools in Unreal Engine 4 and C++ supporting active defense programs.",
-      "Delivered sprint goals within an Agile Scrum team on classified simulation systems.",
-      "Diagnosed and maintained simulation infrastructure to keep defense development pipelines unblocked.",
+      "Built real-time 3D visualization tools in Unreal Engine 4 and C++ with custom OpenGL rendering for aerospace data analysis workflows.",
+      "Completed all sprint deliverables on schedule within an Agile/Scrum team while iterating rapidly on feedback from subject-matter experts.",
     ],
   },
   {
-    title: "VIVID Lab Programmer",
+    title: "Data Programmer / VR Developer",
     company: "Utah State University — VIVID Lab",
     location: "Logan, UT",
-    period: "Mar 2021 — May 2022",
+    period: "Jan 2022 — May 2022",
     current: false,
-    tags: ["Unity", "C#", "VR Development", "Python", "Django REST"],
+    tags: ["Unity", "C#", "VR", "Python", "Django REST"],
     bullets: [
-      "Partnered with the US Department of Veterans Affairs to design and ship a VR equine therapy app for disabled veterans — owned the full lifecycle from research through deployment.",
-      "Built an immersive VR interface for viewing and interacting with 360° equine therapy sessions.",
-      "Developed command-line tooling to parse, organize, and visualize VR eye-tracking data exported from Unity.",
-    ],
-  },
-  {
-    title: "Head Developer",
-    company: "AppNut",
-    location: "Logan, UT",
-    period: "Jun 2019 — Sep 2019",
-    current: false,
-    tags: ["Unity", "C#", "Mobile Development", "Game Development"],
-    bullets: [
-      "Led development of Crashy Road!, a hyper-casual mobile game published on the Apple App Store.",
-      "Sole engineer on a startup team — owned game mechanics, analytics integration, and App Store submission end-to-end.",
+      "Built a VR equine therapy application in Unity (C#) for disabled veterans in a DoD-partnered research program — delivered full prototype used in live therapy sessions.",
+      "Engineered Python + Django REST data-pipeline tools to process and visualize eye-tracking telemetry from VR headsets, enabling clinical outcome research.",
+      "Designed command-line utilities to organize and export multi-session VR datasets for downstream statistical analysis.",
     ],
   },
 ];
@@ -118,8 +106,8 @@ export default function Experience() {
                           {job.title}
                         </h3>
                         {job.current && (
-                          <span className="text-xs px-2 py-0.5 bg-[#f0a500]/10 border border-[#f0a500]/30 text-[#f0a500] rounded-sm">
-                            Ending May 2026
+                          <span className="text-xs px-2 py-0.5 bg-[#39d353]/10 border border-[#39d353]/30 text-[#39d353] rounded-sm">
+                            Current
                           </span>
                         )}
                       </div>
