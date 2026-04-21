@@ -8,6 +8,9 @@
   --c-line:     #1e2d3d;
   --c-text:     #e6edf3;
   --c-faint:    #8b949e;
+  --c-accent:   #00e5ff;
+  --c-accent2:  #7c3aed;
+  --c-green:    #39d353;
 }
 
 html.light {
@@ -17,6 +20,10 @@ html.light {
   --c-line:     #d0d7de;
   --c-text:     #1c2128;
   --c-faint:    #656d76;
+  /* Darker accent variants for contrast on light backgrounds */
+  --c-accent:   #0284c7;
+  --c-accent2:  #6d28d9;
+  --c-green:    #16a34a;
 }
 
 @theme inline {
@@ -26,9 +33,9 @@ html.light {
   --color-line:     var(--c-line);
   --color-prose:    var(--c-text);
   --color-faint:    var(--c-faint);
-  --color-accent:   #00e5ff;
-  --color-accent2:  #7c3aed;
-  --color-green:    #39d353;
+  --color-accent:   var(--c-accent);
+  --color-accent2:  var(--c-accent2);
+  --color-green:    var(--c-green);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

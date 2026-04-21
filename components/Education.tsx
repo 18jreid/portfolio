@@ -35,17 +35,17 @@ export default function Education() {
           <div className="p-6 border border-accent2/30 bg-accent2/5 hover:border-accent2/60 transition-all duration-300">
             <div className="flex items-start gap-4">
               <div className="p-2.5 border border-accent2/40 bg-accent2/10 shrink-0">
-                <Shield size={20} className="text-[#a78bfa]" />
+                <Shield size={20} className="text-accent2" />
               </div>
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
                   <div className="font-bold text-prose">Security Clearance</div>
-                  <span className="text-xs px-2 py-0.5 border border-accent2/40 bg-accent2/10 text-[#a78bfa] rounded-sm">
+                  <span className="text-xs px-2 py-0.5 border border-accent2/40 bg-accent2/10 text-accent2 rounded-sm">
                     Eligible for Reinstatement
                   </span>
                 </div>
                 <div className="text-sm text-faint mt-0.5">Previously Held — US Government Issued</div>
-                <div className="text-sm text-[#a78bfa] mt-2">Department of Defense</div>
+                <div className="text-sm text-accent2 mt-2">Department of Defense</div>
                 <div className="text-xs text-faint mt-1">309th SWEG — Hill AFB</div>
                 <p className="mt-4 text-xs text-faint leading-relaxed">
                   Held for 3+ years supporting classified avionics software on the F-16

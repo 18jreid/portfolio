@@ -109,7 +109,7 @@ export default function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-green shadow-[0_0_6px_#39d353]" />
             Open to Full-Time
           </span>
-          <span className="flex items-center gap-2 px-3 py-1.5 border border-accent2/50 bg-accent2/10 text-[#a78bfa] text-xs font-semibold">
+          <span className="flex items-center gap-2 px-3 py-1.5 border border-accent2/50 bg-accent2/10 text-accent2 text-xs font-semibold">
             <Shield size={11} />
             Prev. Security Clearance
           </span>
