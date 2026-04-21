@@ -14,6 +14,23 @@ function getSection(el: Element): string {
 export default function ClickTracker() {
   const sessionStart = useRef(Date.now());
 
+  // Fire once on page load
+  useEffect(() => {
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        eventType: "page_view",
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        screenRes: `${screen.width}x${screen.height}`,
+        language: navigator.language,
+        referrer: document.referrer,
+        pageTitle: document.title,
+        sessionStart: sessionStart.current,
+      }),
+    }).catch(() => {});
+  }, []);
+
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const target = (e.target as Element).closest("a, button");

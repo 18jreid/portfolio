@@ -45,10 +45,86 @@ function row(label: string, value: string) {
     </tr>`;
 }
 
+async function getGeo(ip: string) {
+  try {
+    const res = await fetch(`http://ip-api.com/json/${ip}?fields=city,regionName,country,isp,status`);
+    const data = await res.json();
+    if (data.status === "success") {
+      return { city: data.city, region: data.regionName, country: data.country, isp: data.isp };
+    }
+  } catch {}
+  return { city: "Unknown", region: "Unknown", country: "Unknown", isp: "Unknown" };
+}
+
+function locationTable(geo: ReturnType<typeof getGeo> extends Promise<infer T> ? T : never, ip: string) {
+  return `
+    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
+      <thead>
+        <tr><td colspan="2" style="padding:8px 12px;background:#39d35310;color:#39d353;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Visitor Location</td></tr>
+      </thead>
+      <tbody>
+        ${row("IP Address", ip)}
+        ${row("City", geo.city)}
+        ${row("Region", geo.region)}
+        ${row("Country", geo.country)}
+        ${row("ISP / Org", geo.isp)}
+      </tbody>
+    </table>`;
+}
+
+function deviceTable(ua: string, viewport: string, screenRes: string, language: string) {
+  return `
+    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
+      <thead>
+        <tr><td colspan="2" style="padding:8px 12px;background:#f0a50010;color:#f0a500;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Device & Browser</td></tr>
+      </thead>
+      <tbody>
+        ${row("Device Type", parseDevice(ua))}
+        ${row("Browser", parseBrowser(ua))}
+        ${row("OS", parseOS(ua))}
+        ${row("Viewport", viewport || "Unknown")}
+        ${row("Screen Res", screenRes || "Unknown")}
+        ${row("Language", language || "Unknown")}
+        ${row("User Agent", ua)}
+      </tbody>
+    </table>`;
+}
+
+function sessionTable(referrer: string, now: Date) {
+  return `
+    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;">
+      <thead>
+        <tr><td colspan="2" style="padding:8px 12px;background:#8b949e10;color:#8b949e;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Session</td></tr>
+      </thead>
+      <tbody>
+        ${row("Referrer", referrer || "Direct / None")}
+        ${row("UTC Time", now.toISOString())}
+      </tbody>
+    </table>`;
+}
+
+function emailShell(timestamp: string, title: string, accentColor: string, body: string) {
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#080c14;font-family:'Courier New',monospace;">
+  <div style="max-width:600px;margin:0 auto;padding:24px;">
+    <div style="border-left:3px solid ${accentColor};padding-left:16px;margin-bottom:24px;">
+      <p style="margin:0;color:${accentColor};font-size:11px;letter-spacing:3px;text-transform:uppercase;">justinreid.dev</p>
+      <h1 style="margin:4px 0 0;color:#e6edf3;font-size:20px;">${title}</h1>
+      <p style="margin:4px 0 0;color:#8b949e;font-size:12px;">${timestamp}</p>
+    </div>
+    ${body}
+  </div>
+</body>
+</html>`;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const {
+      eventType,
       linkText,
       linkHref,
       section,
@@ -65,16 +141,7 @@ export async function POST(req: NextRequest) {
       req.headers.get("x-real-ip") ||
       "Unknown";
     const ua = req.headers.get("user-agent") || "Unknown";
-
-    // IP geolocation
-    let geo = { city: "Unknown", region: "Unknown", country: "Unknown", isp: "Unknown" };
-    try {
-      const geoRes = await fetch(`http://ip-api.com/json/${ip}?fields=city,regionName,country,isp,status`);
-      const geoData = await geoRes.json();
-      if (geoData.status === "success") {
-        geo = { city: geoData.city, region: geoData.regionName, country: geoData.country, isp: geoData.isp };
-      }
-    } catch {}
+    const geo = await getGeo(ip);
 
     const now = new Date();
     const timestamp = now.toLocaleString("en-US", {
@@ -83,80 +150,54 @@ export async function POST(req: NextRequest) {
       timeStyle: "long",
     });
 
-    const timeOnPage = sessionStart
-      ? `${Math.round((Date.now() - sessionStart) / 1000)}s`
-      : "Unknown";
+    let subject: string;
+    let html: string;
 
-    const html = `
-<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#080c14;font-family:'Courier New',monospace;">
-  <div style="max-width:600px;margin:0 auto;padding:24px;">
-    <div style="border-left:3px solid #00e5ff;padding-left:16px;margin-bottom:24px;">
-      <p style="margin:0;color:#00e5ff;font-size:11px;letter-spacing:3px;text-transform:uppercase;">justinreid.dev</p>
-      <h1 style="margin:4px 0 0;color:#e6edf3;font-size:20px;">Link Click Detected</h1>
-      <p style="margin:4px 0 0;color:#8b949e;font-size:12px;">${timestamp}</p>
-    </div>
+    if (eventType === "page_view") {
+      subject = `Portfolio Visit — ${geo.city}, ${geo.country} · ${parseDevice(ua)}`;
+      html = emailShell(timestamp, "Page Visit", "#39d353", `
+        <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
+          <thead>
+            <tr><td colspan="2" style="padding:8px 12px;background:#39d35310;color:#39d353;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Visit Event</td></tr>
+          </thead>
+          <tbody>
+            ${row("Page", pageTitle || "Unknown")}
+            ${row("Referrer", referrer || "Direct / None")}
+          </tbody>
+        </table>
+        ${locationTable(geo, ip)}
+        ${deviceTable(ua, viewport, screenRes, language)}
+        ${sessionTable(referrer, now)}
+      `);
+    } else {
+      const timeOnPage = sessionStart
+        ? `${Math.round((Date.now() - sessionStart) / 1000)}s`
+        : "Unknown";
 
-    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
-      <thead>
-        <tr><td colspan="2" style="padding:8px 12px;background:#00e5ff10;color:#00e5ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Click Event</td></tr>
-      </thead>
-      <tbody>
-        ${row("Link Text", linkText || "(no text)")}
-        ${row("Link URL", linkHref || "(unknown)")}
-        ${row("Page Section", section || "Unknown")}
-        ${row("Page Title", pageTitle || "Unknown")}
-        ${row("Time on Page", timeOnPage)}
-      </tbody>
-    </table>
-
-    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
-      <thead>
-        <tr><td colspan="2" style="padding:8px 12px;background:#39d35310;color:#39d353;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Visitor Location</td></tr>
-      </thead>
-      <tbody>
-        ${row("IP Address", ip)}
-        ${row("City", geo.city)}
-        ${row("Region", geo.region)}
-        ${row("Country", geo.country)}
-        ${row("ISP / Org", geo.isp)}
-      </tbody>
-    </table>
-
-    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
-      <thead>
-        <tr><td colspan="2" style="padding:8px 12px;background:#f0a50010;color:#f0a500;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Device & Browser</td></tr>
-      </thead>
-      <tbody>
-        ${row("Device Type", parseDevice(ua))}
-        ${row("Browser", parseBrowser(ua))}
-        ${row("OS", parseOS(ua))}
-        ${row("Viewport", viewport || "Unknown")}
-        ${row("Screen Res", screenRes || "Unknown")}
-        ${row("Language", language || "Unknown")}
-        ${row("User Agent", ua)}
-      </tbody>
-    </table>
-
-    <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;">
-      <thead>
-        <tr><td colspan="2" style="padding:8px 12px;background:#8b949e10;color:#8b949e;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Session</td></tr>
-      </thead>
-      <tbody>
-        ${row("Referrer", referrer || "Direct / None")}
-        ${row("UTC Time", now.toISOString())}
-      </tbody>
-    </table>
-  </div>
-</body>
-</html>`;
+      subject = `Portfolio Click: ${linkText || linkHref} — ${geo.city}, ${geo.country}`;
+      html = emailShell(timestamp, "Link Click Detected", "#00e5ff", `
+        <table style="width:100%;border-collapse:collapse;border:1px solid #1e2d3d;margin-bottom:20px;">
+          <thead>
+            <tr><td colspan="2" style="padding:8px 12px;background:#00e5ff10;color:#00e5ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #1e2d3d;">Click Event</td></tr>
+          </thead>
+          <tbody>
+            ${row("Link Text", linkText || "(no text)")}
+            ${row("Link URL", linkHref || "(unknown)")}
+            ${row("Page Section", section || "Unknown")}
+            ${row("Page Title", pageTitle || "Unknown")}
+            ${row("Time on Page", timeOnPage)}
+          </tbody>
+        </table>
+        ${locationTable(geo, ip)}
+        ${deviceTable(ua, viewport, screenRes, language)}
+        ${sessionTable(referrer, now)}
+      `);
+    }
 
     await transporter.sendMail({
       from: `"Justin's Portfolio" <${process.env.GMAIL_USER}>`,
       to: process.env.NOTIFY_EMAIL,
-      subject: `Portfolio Click: ${linkText || linkHref} — ${geo.city}, ${geo.country}`,
+      subject,
       html,
     });
 
