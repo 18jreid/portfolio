@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ClickTracker from "@/components/ClickTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio.reidfamilies.com"),
+  metadataBase: new URL("https://justinreid.dev"),
   title: "Justin Reid — Software Engineer",
   description:
     "Portfolio of Justin Reid — AI Solutions Engineer, Software Developer, and Test Automation expert with a background in aerospace defense systems.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: "Justin Reid — Software Engineer",
     description:
       "AI Solutions Engineer and full-stack developer with a defense background — building AI pipelines, full-stack apps, and automated systems.",
-    url: "https://portfolio.reidfamilies.com",
+    url: "https://justinreid.dev",
     siteName: "Justin Reid Portfolio",
     images: [
       {
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ClickTracker />
         {children}
       </body>
     </html>
