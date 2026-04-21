@@ -1,79 +1,75 @@
 @import "tailwindcss";
 
+/* ── Theme tokens ─────────────────────────────────────── */
+:root {
+  --c-bg:       #080c14;
+  --c-surface:  #0d1117;
+  --c-surface2: #161b22;
+  --c-line:     #1e2d3d;
+  --c-text:     #e6edf3;
+  --c-faint:    #8b949e;
+}
+
+html.light {
+  --c-bg:       #f6f8fa;
+  --c-surface:  #ffffff;
+  --c-surface2: #f0f2f4;
+  --c-line:     #d0d7de;
+  --c-text:     #1c2128;
+  --c-faint:    #656d76;
+}
+
 @theme inline {
-  --color-background: #080c14;
-  --color-surface: #0d1117;
-  --color-surface-2: #161b22;
-  --color-border: #1e2d3d;
-  --color-accent: #00e5ff;
-  --color-accent-2: #7c3aed;
-  --color-text: #e6edf3;
-  --color-muted: #8b949e;
-  --color-green: #39d353;
+  --color-bg:       var(--c-bg);
+  --color-surface:  var(--c-surface);
+  --color-surface2: var(--c-surface2);
+  --color-line:     var(--c-line);
+  --color-prose:    var(--c-text);
+  --color-faint:    var(--c-faint);
+  --color-accent:   #00e5ff;
+  --color-accent2:  #7c3aed;
+  --color-green:    #39d353;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  scroll-behavior: smooth;
-}
+/* ── Base ─────────────────────────────────────────────── */
+* { scroll-behavior: smooth; }
 
 body {
-  background-color: #080c14;
-  color: #e6edf3;
+  background-color: var(--c-bg);
+  color: var(--c-text);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0d1117;
-}
-::-webkit-scrollbar-thumb {
-  background: #1e2d3d;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00e5ff40;
-}
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--c-surface); }
+::-webkit-scrollbar-thumb  { background: var(--c-line); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00e5ff40; }
 
-/* Blinking cursor animation */
+/* ── Animations ───────────────────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 }
+.cursor-blink { animation: blink 1s step-end infinite; }
 
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-}
+/* ── Glow helpers ─────────────────────────────────────── */
+.glow-cyan  { text-shadow: 0 0 20px #00e5ff80, 0 0 40px #00e5ff40; }
+.glow-green { text-shadow: 0 0 20px #39d35380, 0 0 40px #39d35340; }
+.border-glow { box-shadow: 0 0 0 1px #00e5ff20, 0 0 20px #00e5ff10; }
 
-/* Scan line effect */
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-/* Glow effects */
-.glow-cyan {
-  text-shadow: 0 0 20px #00e5ff80, 0 0 40px #00e5ff40;
-}
-
-.glow-green {
-  text-shadow: 0 0 20px #39d35380, 0 0 40px #39d35340;
-}
-
-.border-glow {
-  box-shadow: 0 0 0 1px #00e5ff20, 0 0 20px #00e5ff10;
-}
-
-/* Grid background */
+/* ── Grid background ──────────────────────────────────── */
 .grid-bg {
   background-image:
     linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
-
-/* Section fade-in handled by framer-motion */
+html.light .grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 100, 180, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 100, 180, 0.04) 1px, transparent 1px);
+}

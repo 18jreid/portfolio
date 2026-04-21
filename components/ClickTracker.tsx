@@ -2,61 +2,89 @@
 
 import { useEffect, useRef } from "react";
 
+function beacon(data: object) {
+  navigator.sendBeacon("/api/perf", new Blob([JSON.stringify(data)], { type: "application/json" }));
+}
+
 function getSection(el: Element): string {
   const section = el.closest("section");
   if (!section) return "Unknown";
   const id = section.id;
   if (id) return id.charAt(0).toUpperCase() + id.slice(1);
-  const heading = section.querySelector("h2, h1");
-  return heading?.textContent?.trim() || "Unknown";
+  return section.querySelector("h2, h1")?.textContent?.trim() || "Unknown";
 }
 
 export default function ClickTracker() {
   const sessionStart = useRef(Date.now());
 
-  // Fire once on page load
+  // Page view on mount
   useEffect(() => {
-    fetch("/api/track", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        eventType: "page_view",
-        viewport: `${window.innerWidth}x${window.innerHeight}`,
-        screenRes: `${screen.width}x${screen.height}`,
-        language: navigator.language,
-        referrer: document.referrer,
-        pageTitle: document.title,
-        sessionStart: sessionStart.current,
-      }),
-    }).catch(() => {});
+    beacon({
+      eventType: "page_view",
+      viewport: `${window.innerWidth}x${window.innerHeight}`,
+      screenRes: `${screen.width}x${screen.height}`,
+      language: navigator.language,
+      referrer: document.referrer,
+      pageTitle: document.title,
+      sessionStart: sessionStart.current,
+    });
   }, []);
 
+  // Scroll depth — report max depth reached when user leaves
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const target = (e.target as Element).closest("a, button");
-      if (!target) return;
+    let maxDepth = 0;
 
-      const linkHref = (target as HTMLAnchorElement).href || "";
-      const linkText = target.textContent?.trim().slice(0, 100) || "";
+    const onScroll = () => {
+      const pct = Math.round(
+        ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100
+      );
+      if (pct > maxDepth) maxDepth = Math.min(pct, 100);
+    };
 
-      // Skip purely internal scroll anchors with no real destination
-      if (linkHref.startsWith("javascript:")) return;
-
-      fetch("/api/track", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          linkText,
-          linkHref,
-          section: getSection(target),
+    const onLeave = () => {
+      if (maxDepth >= 25) {
+        beacon({
+          eventType: "scroll_depth",
+          depth: maxDepth,
           viewport: `${window.innerWidth}x${window.innerHeight}`,
           screenRes: `${screen.width}x${screen.height}`,
           language: navigator.language,
           referrer: document.referrer,
           pageTitle: document.title,
           sessionStart: sessionStart.current,
-        }),
-      }).catch(() => {});
+        });
+      }
+    };
+
+    const onVisibility = () => { if (document.hidden) onLeave(); };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, []);
+
+  // Click tracking
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = (e.target as Element).closest("a, button");
+      if (!target) return;
+      const linkHref = (target as HTMLAnchorElement).href || "";
+      if (linkHref.startsWith("javascript:")) return;
+      const linkText = target.textContent?.trim().slice(0, 100) || "";
+      beacon({
+        linkText,
+        linkHref,
+        section: getSection(target),
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        screenRes: `${screen.width}x${screen.height}`,
+        language: navigator.language,
+        referrer: document.referrer,
+        pageTitle: document.title,
+        sessionStart: sessionStart.current,
+      });
     };
 
     document.addEventListener("click", handler);
